@@ -1,6 +1,6 @@
 # getSortedByProperty()
 
-## getSortedByProperty(property: string,  objects): any[]
+## getSortedByProperty(property: string, objects): any[]
 
 Returns new array of <b>objects</b>, sorted by <b>property</b> in each.  
 Based on the data type of <b>property</b> in the first object, it decides how to sort all the objects.  
@@ -8,13 +8,13 @@ Sorting is done either numerically or alphabetically.
 Data types of boolean and undefined are treated as strings and sorted alphabetically.  
 The original <b>objects</b> array is not modified.
 
-This function allows <b>property</b> to be a string that can include dot notation  
+<b>property</b> is a string that can include dot notation  
 ( i.e,  'property.subproperty.subsubproperty' ) .
 
 Note:  even if you are getting the value of an array item, here you need to use  
 dot-notation and not square braces.  
 Example:  if getting the first item of the first item of an array, write:  
-`getSortedByProperty('0.0', array);  // instead of array[0][0]`
+`getSortedByProperty('0.0', arrays);  // instead of [0][0]`
 
 ## Examples
 ```
