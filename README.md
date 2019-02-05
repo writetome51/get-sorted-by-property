@@ -3,22 +3,42 @@
 ## getSortedByProperty(property: string, objects): any[]
 
 Returns new array of <b>objects</b>, sorted by <b>property</b> in each.  
-Based on the data type of <b>property</b> in the first object, it decides how to sort all the objects.  
-Sorting is done either numerically or alphabetically.  
-Data types of boolean and undefined are treated as strings and sorted alphabetically.  
+<u>Based on the data type of <b>property</b> in the first object, it decides how to sort all the 
+objects.</u>  
+If the data type is string, boolean, or undefined, <b>objects</b> are sorted alphabetically.  
+If the data type is number, <b>objects</b> are sorted numerically.  
 The original <b>objects</b> array is not modified.
 
-<b>property</b> is a string that can include dot notation  
-( i.e,  'property.subproperty.subsubproperty' ) .
-
-Note:  even if you are getting the value of an array item, here you need to use  
-dot-notation and not square braces.  
+<b>property</b> is a string that can include dot notation ( i.e,  'property.subproperty.subsubproperty' ) .  
+Note:  even if you are getting the value of an array item, here you need to use dot-notation and not  
+square braces.  
 Example:  if getting the first item of the first item of an array, write:  
 `getSortedByProperty('0.0', arrays);  // instead of [0][0]`
 
 ## Examples
 ```
+let objects: any[] = [
+	{user: {email: 'blah123@yahoo.com', age: 28}},
+	{user: {email: 'zzz100@gmail.com', age: 55}},
+	{user: {email: 'xyz100@gmail.com', age: 83}},
+	{user: {email: 'xyz200@gmail.com', age: 19}},
+	{user: {email: 'xxx100@yahoo.com', age: 22}},
+	{user: {email: 'blah100@gmail.com', age: 40}}
+];
 
+let sortedObjects = getSortedByProperty('user.email', objects);
+
+/**************
+sortedObjects is:
+[
+    { user: { email: 'blah100@gmail.com', age: 40 } },
+    { user: { email: 'blah123@yahoo.com', age: 28 } },
+    { user: { email: 'xxx100@yahoo.com', age: 22 } },
+    { user: { email: 'xyz100@gmail.com', age: 83 } },
+    { user: { email: 'xyz200@gmail.com', age: 19 } },
+    { user: { email: 'zzz100@gmail.com', age: 55 } } 
+]
+**************/
 ```
 
 ## Installation
