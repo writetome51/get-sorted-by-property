@@ -10,7 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/writetome51/get-sorted-by-property.git"
   },
-  "keywords": [],
+  "keywords": [
+    "sort",
+    "sorter",
+    "objects",
+    "object",
+    "property",
+    "numerically",
+    "alphabetically"
+  ],
   "author": "Steve Thompson",
   "license": "MIT",
   "bugs": {
@@ -18,7 +26,8 @@
   },
   "homepage": "https://github.com/writetome51/get-sorted-by-property#readme",
   "devDependencies": {
-    "@writetome51/arrays-match": "~1.0.4"
+    "@writetome51/arrays-match": "~1.0.4",
+    "@writetome51/get-array-from-property": "~1.1.0"
   },
   "dependencies": {
     "@writetome51/get-property": "~1.0.1",
