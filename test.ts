@@ -79,3 +79,36 @@ sortedObjects = getSortedByProperty('user.male', objects);
 result = getArrayFromProperty('user.male', sortedObjects);
 if (arraysMatch(result, [false, false, true, true])) console.log('test 6 passed');
 else console.log('test 6 FAILED');
+
+
+errorTriggered = false;
+try {
+	sortedObjects = getSortedByProperty('', objects);
+}
+catch (e) {
+	errorTriggered = true;
+}
+if (errorTriggered) console.log('test 7 passed');
+else console.log('test 7 FAILED');
+
+
+errorTriggered = false;
+try {
+	sortedObjects = getSortedByProperty('property', '');
+}
+catch (e) {
+	errorTriggered = true;
+}
+if (errorTriggered) console.log('test 8 passed');
+else console.log('test 8 FAILED');
+
+
+errorTriggered = false;
+try {
+	sortedObjects = getSortedByProperty('property', []);
+}
+catch (e) {
+	errorTriggered = true;
+}
+if (errorTriggered) console.log('test 9 passed');
+else console.log('test 9 FAILED');

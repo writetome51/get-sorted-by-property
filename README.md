@@ -10,8 +10,8 @@ If the data type is number, <b>objects</b> are sorted numerically.
 The original <b>objects</b> array is not modified.
 
 <b>property</b> is a string that can include dot notation ( i.e,  'property.subproperty.subsubproperty' ) .  
-Note:  even if you are getting the value of an array item, here you need to use dot-notation and not  
-square braces.  
+Note:  even if you are getting the value of an array item, here you need to use dot-notation  
+and not square braces.  
 Example:  if getting the first item of the first item of an array, write:  
 `getSortedByProperty('0.0', arrays);  // instead of [0][0]`
 

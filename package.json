@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/get-sorted-by-property",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sorts array of objects by the value of a particular property",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
     "@writetome51/array-get-copy": "~1.1.1",
     "@writetome51/alphabetize-by-property": "~1.1.0",
     "@writetome51/get-in-numeric-order-by-property": "~1.0.0",
-    "@writetome51/set-array": "~1.0.1"
+    "@writetome51/set-array": "~1.0.1",
+    "error-if-not-populated-array": "~1.0.1"
   }
 }

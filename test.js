@@ -75,3 +75,36 @@ if (arrays_match_1.arraysMatch(result, [false, false, true, true]))
     console.log('test 6 passed');
 else
     console.log('test 6 FAILED');
+errorTriggered = false;
+try {
+    sortedObjects = index_1.getSortedByProperty('', objects);
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 7 passed');
+else
+    console.log('test 7 FAILED');
+errorTriggered = false;
+try {
+    sortedObjects = index_1.getSortedByProperty('property', '');
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 8 passed');
+else
+    console.log('test 8 FAILED');
+errorTriggered = false;
+try {
+    sortedObjects = index_1.getSortedByProperty('property', []);
+}
+catch (e) {
+    errorTriggered = true;
+}
+if (errorTriggered)
+    console.log('test 9 passed');
+else
+    console.log('test 9 FAILED');
