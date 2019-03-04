@@ -1,10 +1,11 @@
 {
   "name": "@writetome51/get-sorted-by-property",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sorts array of objects by the value of a particular property",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -26,15 +27,15 @@
   },
   "homepage": "https://github.com/writetome51/get-sorted-by-property#readme",
   "devDependencies": {
-    "@writetome51/arrays-match": "~1.0.4",
-    "@writetome51/get-array-from-property": "~1.1.0"
+    "@writetome51/arrays-match": "~1.0.5",
+    "@writetome51/get-array-from-property": "~1.1.1"
   },
   "dependencies": {
-    "@writetome51/get-property": "~1.0.1",
-    "@writetome51/array-get-copy": "~1.1.1",
-    "@writetome51/alphabetize-by-property": "~2.0.0",
-    "@writetome51/get-in-numeric-order-by-property": "~1.0.0",
-    "@writetome51/set-array": "~1.0.1",
+    "@writetome51/get-property": "~1.0.2",
+    "@writetome51/array-get-copy": "~1.1.2",
+    "@writetome51/alphabetize-by-property": "~2.0.1",
+    "@writetome51/get-in-numeric-order-by-property": "~1.0.2",
+    "@writetome51/set-array": "~1.0.2",
     "error-if-not-populated-array": "~1.0.1"
   }
 }

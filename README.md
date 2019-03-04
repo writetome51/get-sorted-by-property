@@ -1,18 +1,16 @@
-# getSortedByProperty()
+# getSortedByProperty(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects<br>): any[]
 
-## getSortedByProperty(property: string, objects): any[]
+Returns new array of `objects`, sorted by `property` in each.  
+<u>Based on the data type of `objects[0][property]`, it decides how to sort all  
+`objects`.</u>  
+If the data type is string or boolean, `objects` are sorted alphabetically.  
+If the data type is number, `objects` are sorted numerically.  
+The original `objects` array is not modified.
 
-Returns new array of <b>objects</b>, sorted by <b>property</b> in each.  
-<u>Based on the data type of <b>property</b> in the first object, it decides how to sort all the 
-objects.</u>  
-If the data type is string or boolean, <b>objects</b> are sorted alphabetically.  
-If the data type is number, <b>objects</b> are sorted numerically.  
-The original <b>objects</b> array is not modified.
-
-<b>property</b> is a string that can include dot notation ( i.e,  'property.subproperty.subsubproperty' ) .  
-Note:  even if you are getting the value of an array item, here you need to use dot-notation  
+`property` is a string that can include dot notation ( i.e,  'property.subproperty.subsubproperty' ) .  
+Note:  even if `property` is an array index, here you need to use dot-notation  
 and not square braces.  
-Example:  if getting the first item of the first item of an array, write:  
+Example:  if referring to the first item of the first item of an array, write:  
 `getSortedByProperty('0.0', arrays);  // instead of [0][0]`
 
 ## Examples
