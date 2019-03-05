@@ -25,13 +25,12 @@ export function getSortedByProperty(propertyToSortBy, objects): any[] {
 
 
 	function sortByDataType(dataType, objects) {
-		let booleanStringUndefined = ['boolean', 'string', 'undefined'];
+		let booleanString = ['boolean', 'string'];
 		if (dataType === 'number')
 			setArray(objects, getInNumericOrderByProperty(propertyToSortBy, objects));
 		// @ts-ignore
-		else if (booleanStringUndefined.includes(dataType))
+		else if (booleanString.includes(dataType))
 			alphabetizeByProperty(propertyToSortBy, objects);
-		else if (dataType === 'object' || dataType === 'function')
-			throw new Error('This function can only sort by number, string, or boolean.');
+		else throw new Error('This function can only sort by number, string, or boolean.');
 	}
 }

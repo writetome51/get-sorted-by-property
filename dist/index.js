@@ -21,13 +21,13 @@ function getSortedByProperty(propertyToSortBy, objects) {
     sortByDataType(dataType, objects);
     return objects;
     function sortByDataType(dataType, objects) {
-        var booleanStringUndefined = ['boolean', 'string', 'undefined'];
+        var booleanString = ['boolean', 'string'];
         if (dataType === 'number')
             set_array_1.setArray(objects, get_in_numeric_order_by_property_1.getInNumericOrderByProperty(propertyToSortBy, objects));
         // @ts-ignore
-        else if (booleanStringUndefined.includes(dataType))
+        else if (booleanString.includes(dataType))
             alphabetize_by_property_1.alphabetizeByProperty(propertyToSortBy, objects);
-        else if (dataType === 'object' || dataType === 'function')
+        else
             throw new Error('This function can only sort by number, string, or boolean.');
     }
 }

@@ -7,7 +7,8 @@ If the data type is string or boolean, `objects` are sorted alphabetically.
 If the data type is number, `objects` are sorted numerically.  
 The original `objects` array is not modified.
 
-`property` is a string that can include dot notation ( i.e,  'property.subproperty.subsubproperty' ) .  
+`property` is a string that can include dot notation  
+( i.e,  'property.subproperty.subsubproperty' ) .  
 Note:  even if `property` is an array index, here you need to use dot-notation  
 and not square braces.  
 Example:  if referring to the first item of the first item of an array, write:  

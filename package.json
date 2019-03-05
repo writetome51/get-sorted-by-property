@@ -1,6 +1,6 @@
 {
   "name": "@writetome51/get-sorted-by-property",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Sorts array of objects by the value of a particular property",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
