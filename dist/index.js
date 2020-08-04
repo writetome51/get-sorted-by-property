@@ -5,8 +5,8 @@ import { getInNumericOrderByProperty } from '@writetome51/get-in-numeric-order-b
 import { getProperty } from '@writetome51/get-property';
 import { setArray } from '@writetome51/set-array';
 // Based on the data type of `objects[0][property]`, it decides how to sort all objects.
-// Sorting is done either numerically or alphabetically.
-// Data types 'boolean' and 'undefined' are treated as strings.
+// That type must be either number, string, or boolean.  Sorting is done either numerically or
+// alphabetically (booleans are treated as strings).
 // Returns new array.  Original not modified.
 // `property` is string that can contain dot-notation.
 export function getSortedByProperty(property, objects) {

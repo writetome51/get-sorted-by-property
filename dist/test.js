@@ -37,6 +37,8 @@ else console.log('test 3 FAILED');
 
 
 // Test 4: make sure that the data type of the first item determines the sorting method.
+// If first value is string, sorting is alphabetical no matter the data type of the following
+// values:
 objects = [
 	{user: {email: 'blah123@yahoo.com', age: '10'}},
 	{user: {email: 'zzz100@gmail.com', age: 55}},
@@ -50,10 +52,11 @@ if (arraysMatch(result, ['10', 100, 20, 5, 55])) console.log('test 4 passed');
 else console.log('test 4 FAILED');
 
 
+// Test 5: if first value is number, but any following value is not, this will error.
 let errorTriggered = false;
 objects = [
-	{user: {email: 'blah123@yahoo.com', age: 10}},
-	{user: {email: 'zzz100@gmail.com', age: '55'}},
+	{user: {email: 'blah123@yahoo.com', age: 10}}, // first age is number...
+	{user: {email: 'zzz100@gmail.com', age: '55'}}, // but following age is not
 	{user: {email: 'xxx100@yahoo.com', age: '100'}},
 	{user: {email: 'xyz100@gmail.com', age: '20'}}
 ];
@@ -67,7 +70,7 @@ else console.log('test 5 FAILED');
 
 
 objects = [
-	{user: {email: 'blah123@yahoo.com', age: '10', male: false}},
+	{user: {email: 'blah123@yahoo.com', age: 10, male: false}},
 	{user: {email: 'zzz100@gmail.com', age: 55, male: true}},
 	{user: {email: 'xxx100@yahoo.com', age: 100, male: false}},
 	{user: {email: 'xyz100@gmail.com', age: 20, male: true}}
@@ -76,6 +79,38 @@ sortedObjects = getSortedByProperty('user.male', objects);
 result = getArrayFromProperty('user.male', sortedObjects);
 if (arraysMatch(result, [false, false, true, true])) console.log('test 6 passed');
 else console.log('test 6 FAILED');
+
+
+// Test 6A: If it's an alphabetical sort, the value for a missing property will be treated as
+// string 'undefined':
+objects = [
+	{user: {email: 'blah123@yahoo.com', age: 10, male: false}},
+	{user: {email: 'zzz100@gmail.com', age: 55, male: true}},
+	{user: {email: 'xxx100@yahoo.com', age: 100, male: false}},
+	{user: {email: 'xyz100@gmail.com', age: 20}} // missing 'male'
+];
+sortedObjects = getSortedByProperty('user.male', objects);
+result = getArrayFromProperty('user.male', sortedObjects);
+if (arraysMatch(result, [false, false, true, undefined])) console.log('test 6A passed');
+else console.log('test 6A FAILED');
+
+
+
+// Test 6B: If first value is not number, string, or boolean, this triggers error:
+errorTriggered = false;
+objects = [
+	{user: {email: 'blah123@yahoo.com', age: 10, male: null}},
+	{user: {email: 'zzz100@gmail.com', age: 55, male: true}},
+	{user: {email: 'xxx100@yahoo.com', age: 100, male: false}}
+];
+try{
+	sortedObjects = getSortedByProperty('user.male', objects);
+}
+catch (e) {
+	errorTriggered = true;
+}
+if (errorTriggered) console.log('test 6B passed');
+else console.log('test 6B FAILED');
 
 
 errorTriggered = false;
