@@ -1,1 +1,1 @@
-export declare function getSortedByProperty(propertyToSortBy: string, objects: any[]): any[];
+export declare function getSortedByProperty(property: string, objects: object[]): object[];

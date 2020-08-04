@@ -1,34 +1,30 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var get_property_1 = require("@writetome51/get-property");
-var array_get_copy_1 = require("@writetome51/array-get-copy");
-var alphabetize_by_property_1 = require("@writetome51/alphabetize-by-property");
-var get_in_numeric_order_by_property_1 = require("@writetome51/get-in-numeric-order-by-property");
-var set_array_1 = require("@writetome51/set-array");
-var error_if_not_populated_array_1 = require("error-if-not-populated-array");
-// Based on the data type of propertyToSortBy in the first object, it decides how to sort all objects.
+import { alphabetizeByProperty } from '@writetome51/alphabetize-by-property';
+import { errorIfLengthIsZero } from 'error-if-length-is-zero';
+import { getArrayCopy } from '@writetome51/get-array-copy';
+import { getInNumericOrderByProperty } from '@writetome51/get-in-numeric-order-by-property';
+import { getProperty } from '@writetome51/get-property';
+import { setArray } from '@writetome51/set-array';
+// Based on the data type of `objects[0][property]`, it decides how to sort all objects.
 // Sorting is done either numerically or alphabetically.
-// data types of boolean and undefined are treated as strings.
-// Returns new array.  Original is not modified.
-// propertyToSortBy is a string that can contain dot-notation.
-function getSortedByProperty(propertyToSortBy, objects) {
-    error_if_not_populated_array_1.errorIfNotPopulatedArray(objects);
-    var dataType = typeof get_property_1.getProperty(propertyToSortBy, objects[0]);
+// Data types 'boolean' and 'undefined' are treated as strings.
+// Returns new array.  Original not modified.
+// `property` is string that can contain dot-notation.
+export function getSortedByProperty(property, objects) {
+    errorIfLengthIsZero(objects);
+    let dataType = typeof getProperty(property, objects[0]);
     if (dataType === 'undefined')
         throw new Error('The first object in the objects array either' +
             ' doesn\'t have the specified property, or that property doesn\'t have a value.');
-    objects = array_get_copy_1.getCopy(objects); // ensures that original array won't be modified.
+    objects = getArrayCopy(objects); // so original won't be modified.
     sortByDataType(dataType, objects);
     return objects;
     function sortByDataType(dataType, objects) {
-        var booleanString = ['boolean', 'string'];
         if (dataType === 'number')
-            set_array_1.setArray(objects, get_in_numeric_order_by_property_1.getInNumericOrderByProperty(propertyToSortBy, objects));
+            setArray(objects, getInNumericOrderByProperty(property, objects));
         // @ts-ignore
-        else if (booleanString.includes(dataType))
-            alphabetize_by_property_1.alphabetizeByProperty(propertyToSortBy, objects);
+        else if (['boolean', 'string'].includes(dataType))
+            alphabetizeByProperty(property, objects);
         else
             throw new Error('This function can only sort by number, string, or boolean.');
     }
 }
-exports.getSortedByProperty = getSortedByProperty;

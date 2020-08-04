@@ -2,21 +2,19 @@
 
 Returns new array of `objects`, sorted by `property` in each.  
 <u>Based on the data type of `objects[0][property]`, it decides how to sort all  
-`objects`.</u>  
-If the data type is string or boolean, `objects` are sorted alphabetically.  
-If the data type is number, `objects` are sorted numerically.  
-The original `objects` array is not modified.
+`objects`.</u> If the data type is string or boolean, `objects` are sorted alphabetically.  
+If the data type is number, `objects` are sorted numerically. The original `objects`  
+array is not modified.
 
-`property` is a string that can include dot notation  
-( i.e,  'property.subproperty.subsubproperty' ) .  
+Note: `property` is a string that can include dot notation ( i.e.,  
+`'property.subproperty.subsubproperty'` ).  
+
 Note:  even if `property` is an array index, here you need to use dot-notation  
-and not square braces.  
-Example:  if referring to the first item of the first item of an array, write:  
-`getSortedByProperty('0.0', arrays);  // instead of [0][0]`
+and not square braces, i.e., `'1.0' // instead of [1][0]`  
 
 ## Examples
-```
-let objects: any[] = [
+```js
+let objects = [
 	{user: {email: 'blah123@yahoo.com', age: 28}},
 	{user: {email: 'zzz100@gmail.com', age: 55}},
 	{user: {email: 'xyz100@gmail.com', age: 83}},
@@ -24,7 +22,6 @@ let objects: any[] = [
 	{user: {email: 'xxx100@yahoo.com', age: 22}},
 	{user: {email: 'blah100@gmail.com', age: 40}}
 ];
-
 let sortedObjects = getSortedByProperty('user.email', objects);
 
 /**************
@@ -95,17 +92,11 @@ sortedObjects = getSortedByProperty('user.age', objects);
 ```
 
 ## Installation
-
-You must have npm installed first.  Then, in the command line:
-
 ```bash
-npm install @writetome51/get-sorted-by-property
+npm i @writetome51/get-sorted-by-property
 ```
 
 ## Loading
-```
-// If using TypeScript:
+```js
 import {getSortedByProperty} from '@writetome51/get-sorted-by-property';
-// If using ES5 JavaScript:
-var getSortedByProperty = require('@writetome51/get-sorted-by-property').getSortedByProperty;
 ```
