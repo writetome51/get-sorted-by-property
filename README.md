@@ -20,10 +20,9 @@ let objects = [
     {user: {email: 'xyz200@gmail.com', age: 19}},
     {user: {email: 'blah123@yahoo.com', age: 28}}
 ];
-let sortedObjects = getSortedByProperty('user.email', objects);
-
+getSortedByProperty('user.email', objects);
 /**************
-sortedObjects is:
+Returns:
 [
     { user: { email: 'blah123@yahoo.com', age: 28 } },
     { user: { email: 'xyz100@gmail.com', age: 83 } },
@@ -32,11 +31,9 @@ sortedObjects is:
 ]
 **************/
 
-
-sortedObjects = getSortedByProperty('user.age', objects);
-
+getSortedByProperty('user.age', objects);
 /**************
-sortedObjects is:
+Returns:
 [
     { user: { email: 'xyz200@gmail.com', age: 19 } },
     { user: { email: 'blah123@yahoo.com', age: 28 } },
@@ -51,15 +48,14 @@ objects = [
     { email: 'blah123@yahoo.com', age: 28 },
     { email: 'zzz100@gmail.com', age: 55 } 
 ];
-sortedObjects = getSortedByProperty('age', objects);
+getSortedByProperty('age', objects);
 // Console: "Error: The first object in the objects array either doesn't have the specified
 //      property, or that property doesn't have a value."
 
 
-// The following scenario is something you need to be careful with.
+// The following is something you need to be careful with.
 // We're going to sort by 'user.age', but the value in first object will be a string,
-// meaning sorting will be alphabetical, so all the number values in the 
-// subsequent items will be treated like strings:
+// meaning sorting will be alphabetical:
 
 objects = [
     {user: {email: 'blah123@yahoo.com', age: '10'}}, // string means sorting will be alphabetical.
@@ -68,10 +64,9 @@ objects = [
     {user: {email: 'xyz100@gmail.com', age: 20}},
     {user: {email: 'xyz200@gmail.com', age: 5}}
 ];
-sortedObjects = getSortedByProperty('user.age', objects);
-
+getSortedByProperty('user.age', objects);
 /**************
-sortedObjects is:
+Returns:
 [
     { user: { email: 'blah123@yahoo.com', age: '10' } },
     { user: { email: 'xxx100@yahoo.com', age: 100 } },
@@ -91,7 +86,7 @@ objects = [
     {user: {email: 'xxx100@yahoo.com', age: '100'}}, // are actually strings, that will trigger error.
     {user: {email: 'xyz100@gmail.com', age: '20'}}
 ];
-sortedObjects = getSortedByProperty('user.age', objects);
+getSortedByProperty('user.age', objects);
 // Console: "Error: Input must be a finite number of type 'number' "
 ```
 

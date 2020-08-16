@@ -64,6 +64,7 @@ try {
 	sortedObjects = getSortedByProperty('user.age', objects);
 } catch (e) {
 	errorTriggered = true;
+	console.log(e.message);
 }
 if (errorTriggered) console.log('test 5 passed');
 else console.log('test 5 FAILED');
