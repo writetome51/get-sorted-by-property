@@ -1,6 +1,6 @@
 {
-  "name": "@writetome51/get-sorted-by-property",
-  "version": "3.0.0",
+  "name": "@writetome51/sort-by-property",
+  "version": "1.0.0",
   "description": "Sorts array of objects by the value of a particular property",
   "type": "module",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/writetome51/get-sorted-by-property.git"
+    "url": "git+https://github.com/writetome51/sort-by-property.git"
   },
   "keywords": [
     "sort",
@@ -24,16 +24,16 @@
   "author": "Steve Thompson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/writetome51/get-sorted-by-property/issues"
+    "url": "https://github.com/writetome51/sort-by-property/issues"
   },
-  "homepage": "https://github.com/writetome51/get-sorted-by-property#readme",
+  "homepage": "https://github.com/writetome51/sort-by-property#readme",
   "devDependencies": {
     "@writetome51/arrays-match": "^2.0.1",
     "@writetome51/get-array-from-property": "^2.0.1"
   },
   "dependencies": {
-    "@writetome51/get-alphabetized-by-property": "^1.0.0",
-    "@writetome51/get-in-numeric-order-by-property": "^2.0.1",
+    "@writetome51/alphabetize": "^2.0.0",
+    "@writetome51/order-numerically": "^1.0.0",
     "@writetome51/get-property": "^2.0.1",
     "error-if-length-is-zero": "^1.0.1"
   }

@@ -1,14 +1,12 @@
-# getSortedByProperty(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property: string,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects: object[]<br>): object[]
+# sortByProperty(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;property: string,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;objects: object[]<br>): void
 
-Returns new array of `objects`, sorted by `property` in each.  
+Re-orders `objects`, sorted by `property` in each.  
 Based on the data type of `objects[0][property]`, it decides how to sort all `objects`.  
 That type must be either number, string, or boolean.  Sorting is done either numerically or  
 alphabetically (booleans are treated as strings).  
-The original `objects` array is not modified.
 
 Note: `property` is a string that can include dot notation ( i.e.,  
 `'property.subproperty.subsubproperty'` ).  
-
 Note:  even if `property` is an array index, here you need to use dot-notation  
 and not square braces, i.e., `'1.0' // instead of [1][0]`  
 
@@ -20,9 +18,9 @@ let objects = [
     {user: {email: 'xyz200@gmail.com', age: 19}},
     {user: {email: 'blah123@yahoo.com', age: 28}}
 ];
-getSortedByProperty('user.email', objects);
+sortByProperty('user.email', objects);
+console.log(objects);
 /**************
-Returns:
 [
     { user: { email: 'blah123@yahoo.com', age: 28 } },
     { user: { email: 'xyz100@gmail.com', age: 83 } },
@@ -31,9 +29,9 @@ Returns:
 ]
 **************/
 
-getSortedByProperty('user.age', objects);
+sortByProperty('user.age', objects);
+console.log(objects);
 /**************
-Returns:
 [
     { user: { email: 'xyz200@gmail.com', age: 19 } },
     { user: { email: 'blah123@yahoo.com', age: 28 } },
@@ -48,7 +46,7 @@ objects = [
     { email: 'blah123@yahoo.com', age: 28 },
     { email: 'zzz100@gmail.com', age: 55 } 
 ];
-getSortedByProperty('age', objects);
+sortByProperty('age', objects);
 // Console: "Error: The first object in the objects array either doesn't have the specified
 //      property, or that property doesn't have a value."
 
@@ -64,9 +62,9 @@ objects = [
     {user: {email: 'xyz100@gmail.com', age: 20}},
     {user: {email: 'xyz200@gmail.com', age: 5}}
 ];
-getSortedByProperty('user.age', objects);
+sortByProperty('user.age', objects);
+console.log(objects);
 /**************
-Returns:
 [
     { user: { email: 'blah123@yahoo.com', age: '10' } },
     { user: { email: 'xxx100@yahoo.com', age: 100 } },
@@ -75,27 +73,14 @@ Returns:
     { user: { email: 'zzz100@gmail.com', age: 55 } }
 ]
 **************/
-
-
-// The following scenario will cause an error.
-// Again we're going to sort by 'user.age':
-
-objects = [
-    {user: {email: 'blah123@yahoo.com', age: 10}}, // number means sorting will be numeric...
-    {user: {email: 'zzz100@gmail.com', age: '55'}}, // ...but since the numbers in the following items
-    {user: {email: 'xxx100@yahoo.com', age: '100'}}, // are actually strings, that will trigger error.
-    {user: {email: 'xyz100@gmail.com', age: '20'}}
-];
-getSortedByProperty('user.age', objects);
-// Console: "Error: Input must be a finite number of type 'number' "
 ```
 
 ## Installation
 ```bash
-npm i @writetome51/get-sorted-by-property
+npm i @writetome51/sort-by-property
 ```
 
 ## Loading
 ```js
-import {getSortedByProperty} from '@writetome51/get-sorted-by-property';
+import {sortByProperty} from '@writetome51/sort-by-property';
 ```
